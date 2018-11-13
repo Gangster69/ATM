@@ -11,12 +11,19 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        EditText Userid =findViewById(R.id.ed_userid);
+        String userid =getSharedPreferences("atm", MODE_PRIVATE).getString("USERID","");
+        Userid.setText(userid);
     }
 
     public void login(View view) {
         String userid = ((EditText)findViewById(R.id.ed_userid)).getText().toString();
         String passwd = ((EditText)findViewById(R.id.ed_password)).getText().toString();
         if ("jack".equals(userid) && "1234".equals(passwd)) {
+            getSharedPreferences("atm" , MODE_PRIVATE)
+                    .edit()
+                    .putString("USERID",userid)
+                    .apply();
             setResult(RESULT_OK);
             finish();
         }
