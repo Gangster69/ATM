@@ -13,6 +13,9 @@ public class AgeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_age);
+        EditText Age =findViewById(R.id.ed_age);
+        String age =getSharedPreferences("atm",MODE_PRIVATE).getString("Age" , "");
+        Age.setText(age);
     }
     public void next(View view){
         String age =((EditText)findViewById(R.id.ed_age)).getText().toString();
@@ -22,5 +25,9 @@ public class AgeActivity extends AppCompatActivity {
                 .apply();
         Intent gender = new Intent(this,GenderActivity.class);
         startActivity(gender);
+    }
+    public void back(View view){
+        Intent nickname =new Intent(this ,NicknameActivity.class);
+        startActivity(nickname);
     }
 }

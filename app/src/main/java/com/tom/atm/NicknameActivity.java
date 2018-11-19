@@ -12,6 +12,9 @@ public class NicknameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nickname);
+        EditText Nickname =findViewById(R.id.ed_nickname);
+        String nickname =getSharedPreferences("atm",MODE_PRIVATE).getString("Nickname" ,"");
+        Nickname.setText(nickname);
     }
     public void next(View view){
        String nickname =((EditText)findViewById(R.id.ed_nickname)).getText().toString();

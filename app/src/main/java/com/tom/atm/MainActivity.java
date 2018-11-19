@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.util.function.ToDoubleBiFunction;
+
 public class MainActivity extends AppCompatActivity {
     public static final int RC_LOGIN =100;
     boolean logon = false;
