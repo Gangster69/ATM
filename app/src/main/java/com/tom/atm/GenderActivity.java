@@ -17,16 +17,17 @@ public class GenderActivity extends AppCompatActivity {
         Gendser.setText(gender);
     }
     public void next(View view){
-        String gender =((EditText) findViewById(R.id.ed_gender)).getText().toString();
+        int gender =Integer.parseInt(((EditText) findViewById(R.id.ed_gender)).getText().toString());
         getSharedPreferences("atm" ,MODE_PRIVATE)
                 .edit()
-                .putString("Gender" , gender)
+                .putInt("Gender" , gender)
                 .apply();
         Intent main =new Intent(this ,MainActivity.class);
+        setResult(RESULT_OK);
+        main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(main);
     }
     public void back (View view){
-        Intent age =new Intent(this ,AgeActivity.class);
-        startActivity(age);
+        finish();
     }
 }

@@ -18,16 +18,15 @@ public class AgeActivity extends AppCompatActivity {
         Age.setText(age);
     }
     public void next(View view){
-        String age =((EditText)findViewById(R.id.ed_age)).getText().toString();
+        int age =Integer.parseInt(((EditText)findViewById(R.id.ed_age)).getText().toString());
         getSharedPreferences("atm",MODE_PRIVATE)
                 .edit()
-                .putString("Age",age)
+                .putInt("Age",age)
                 .apply();
         Intent gender = new Intent(this,GenderActivity.class);
         startActivity(gender);
     }
     public void back(View view){
-        Intent nickname =new Intent(this ,NicknameActivity.class);
-        startActivity(nickname);
+        finish();
     }
 }
