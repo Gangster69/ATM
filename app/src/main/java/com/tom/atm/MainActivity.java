@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.ToDoubleBiFunction;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity{
     public static final int RC_LOGIN =100;
     boolean logon = false;
     @Override
@@ -41,8 +41,11 @@ public class MainActivity extends AppCompatActivity {
                 if(resultCode !=RESULT_OK){
                     finish();
                 }else{
+                    logon =true;
+                    if(user.isValid()){
                     Intent nickname =new Intent(this,NicknameActivity.class);
                     startActivity(nickname);
+                    }
                 }
             }
     }
