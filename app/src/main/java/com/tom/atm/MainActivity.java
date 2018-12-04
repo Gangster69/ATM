@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.ToDoubleBiFunction;
+
 
 public class MainActivity extends BaseActivity{
     public static final int RC_LOGIN =100;
@@ -38,25 +38,26 @@ public class MainActivity extends BaseActivity{
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new FruitAdapter());
     }
-    class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.FruitViewHolder>{
+    class  FruitAdapter  extends RecyclerView.Adapter<FruitAdapter.FruitViewHolder>{
         @NonNull
         @Override
         public FruitViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(android.R.layout.simple_list_item_1, parent, false);
-            return new FruitViewHolder(view);
+            return null;
         }
+
         @Override
         public void onBindViewHolder(@NonNull FruitViewHolder holder, int position) {
-            holder.nameText.setText(fruits.get(position));
+
         }
+
         @Override
         public int getItemCount() {
-            return fruits.size();
+            return 0;
         }
-        class FruitViewHolder extends RecyclerView.ViewHolder {
+
+        class FruitViewHolder extends RecyclerView.ViewHolder{
             TextView nameText;
-            public FruitViewHolder(View itemView) {
+            public FruitViewHolder(View itemView){
                 super(itemView);
                 nameText = itemView.findViewById(android.R.id.text1);
             }
@@ -80,7 +81,7 @@ public class MainActivity extends BaseActivity{
                     finish();
                 }else{
                     logon =true;
-                    if(user.isValid()){
+                    if(!user.isValid()){
                     Intent nickname =new Intent(this,NicknameActivity.class);
                     startActivity(nickname);
                     }
