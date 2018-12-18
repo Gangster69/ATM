@@ -61,6 +61,7 @@ public class MainActivity extends BaseActivity{
                 super(itemView);
                 nameText = itemView.findViewById(android.R.id.text1);
             }
+
         }
     }
 
